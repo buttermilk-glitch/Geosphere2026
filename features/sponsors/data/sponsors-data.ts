@@ -1,0 +1,60 @@
+import { Sponsor } from "../types/sponsor";
+
+export const SPONSORS_DATA: Sponsor[] = [
+  {
+    id: "pertamina-geothermal",
+    name: "Pertamina Geothermal Energy",
+    tier: "titanium",
+    category: "Principal Energy Partner",
+    logo: "/images/competition/icon-gcsc.png",
+    website: "https://www.pge.pertamina.com",
+  },
+  {
+    id: "slb-geosolutions",
+    name: "SLB (Schlumberger)",
+    tier: "titanium",
+    category: "Global Subsurface Technology",
+    logo: "/images/competition/icon-geoleague.png",
+    website: "https://www.slb.com",
+  },
+  {
+    id: "mind-id",
+    name: "MIND ID",
+    tier: "gold",
+    category: "Mining Industry Indonesia",
+    logo: "/images/competition/icon-geopaper.png",
+    website: "https://www.mind.id",
+  },
+  {
+    id: "medco-energi",
+    name: "Medco Energi",
+    tier: "gold",
+    category: "Energy Exploration & Production",
+    logo: "/images/competition/icon-gtalk.png",
+    website: "https://www.medcoenergi.com",
+  },
+  {
+    id: "cgg-geoscience",
+    name: "CGG Geoscience",
+    tier: "silver",
+    category: "Earth Data & Imaging",
+    logo: "/images/competition/icon-geoepic.png",
+    website: "https://www.cgg.com",
+  },
+  {
+    id: "halliburton",
+    name: "Halliburton Energy",
+    tier: "silver",
+    category: "Subsurface Engineering",
+    logo: "/images/competition/icon-gcsc.png",
+    website: "https://www.halliburton.com",
+  },
+  {
+    id: "baker-hughes",
+    name: "Baker Hughes",
+    tier: "silver",
+    category: "Energy Technology",
+    logo: "/images/competition/icon-geoleague.png",
+    website: "https://www.bakerhughes.com",
+  },
+];
