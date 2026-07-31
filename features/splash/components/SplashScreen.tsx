@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -9,8 +9,19 @@ export function SplashScreen({ onComplete }: { onComplete?: () => void }) {
   const [isVisible, setIsVisible] = useState(false);
   const [targetProgress, setTargetProgress] = useState(0);
   const [displayedProgress, setDisplayedProgress] = useState(0);
+  const preventScrollRef = useRef<(event: Event) => void>(() => {});
+
+  const cleanupScrollLock = () => {
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+    const handler = preventScrollRef.current;
+    window.removeEventListener("wheel", handler);
+    window.removeEventListener("touchmove", handler);
+    window.removeEventListener("touchstart", handler);
+  };
 
   const handleDismiss = () => {
+    cleanupScrollLock();
     setIsVisible(false);
   };
 
@@ -23,12 +34,14 @@ export function SplashScreen({ onComplete }: { onComplete?: () => void }) {
 
     setShouldRender(true);
     setIsVisible(true);
-    document.body.style.overflow = "hidden";
-    document.documentElement.style.overflow = "hidden";
 
     const preventScroll = (event: Event) => {
       event.preventDefault();
     };
+
+    preventScrollRef.current = preventScroll;
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
 
     window.addEventListener("wheel", preventScroll, { passive: false });
     window.addEventListener("touchmove", preventScroll, { passive: false });
@@ -99,10 +112,8 @@ export function SplashScreen({ onComplete }: { onComplete?: () => void }) {
 
     return () => {
       clearTimeout(fallbackTimer);
-      document.body.style.overflow = "";
-      document.documentElement.style.overflow = "";
-      window.removeEventListener("wheel", preventScroll);
-      window.removeEventListener("touchmove", preventScroll);
+      cleanupScrollLock();
+      window.removeEventListener("load", updateAssetCount);
     };
   }, [onComplete]);
 
@@ -142,8 +153,7 @@ export function SplashScreen({ onComplete }: { onComplete?: () => void }) {
 
   const handleExitComplete = () => {
     sessionStorage.setItem("hasSeenSplashScreen", "true");
-    document.body.style.overflow = "";
-    document.documentElement.style.overflow = "";
+    cleanupScrollLock();
     setShouldRender(false);
     if (onComplete) onComplete();
   };

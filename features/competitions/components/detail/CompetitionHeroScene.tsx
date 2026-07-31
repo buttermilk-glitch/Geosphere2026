@@ -11,9 +11,21 @@ interface CompetitionHeroSceneProps {
 }
 
 export function CompetitionHeroScene({ competition }: CompetitionHeroSceneProps) {
+  const isGeoepic = competition.id === "geoepic";
+  const isGtalk = competition.id === "gtalk";
+  const hasGuidebook = Boolean(competition.guidebookUrl);
+  const hasRegistration = Boolean(competition.registrationUrl);
+
   const handleDownloadGuidebook = () => {
     window.open(competition.guidebookUrl, "_blank");
     toast.success(`Opening Guidebook: ${competition.shortTitle} 2026`);
+  };
+
+  const handleScrollToGtalkRegistration = () => {
+    const target = document.getElementById("gtalk-registration");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
   };
 
   return (
@@ -68,9 +80,18 @@ export function CompetitionHeroScene({ competition }: CompetitionHeroSceneProps)
           </div>
         </motion.div>
 
-        <h1 className="font-[family-name:var(--font-serif)] text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.1] tracking-tight mb-8 text-transparent bg-clip-text bg-gradient-to-b from-[#FFF5D6] via-[#FDFBF7] to-[#E6C875] text-balance line-clamp-2 max-w-5xl">
+        <h1 className="font-[family-name:var(--font-serif)] text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal leading-[1.1] tracking-tight mb-6 text-transparent bg-clip-text bg-gradient-to-b from-[#FFF5D6] via-[#FDFBF7] to-[#E6C875] text-balance line-clamp-2 max-w-5xl">
           {competition.title}
         </h1>
+
+        {isGtalk && hasRegistration && (
+          <button
+            onClick={handleScrollToGtalkRegistration}
+            className="mb-8 inline-flex items-center justify-center rounded-full bg-[#E6C875] px-6 py-3 text-sm uppercase tracking-[0.25em] font-semibold text-black transition-all hover:bg-[#FFF5D6] shadow-[0_0_30px_rgba(230,200,117,0.35)]"
+          >
+            REGISTER NOW
+          </button>
+        )}
 
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
@@ -84,28 +105,45 @@ export function CompetitionHeroScene({ competition }: CompetitionHeroSceneProps)
           <span className="font-[family-name:var(--font-serif)] text-3xl sm:text-4xl text-[#FFF5D6] font-normal tracking-wide">
             {competition.prizePool}
           </span>
+          {isGtalk && hasRegistration && (
+            <a
+              id="gtalk-registration"
+              href={competition.registrationUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center justify-center rounded-md bg-[#E6C875] px-5 py-3 text-xs uppercase tracking-widest font-semibold text-black transition-colors hover:bg-[#FFF5D6] shadow-[0_0_30px_rgba(230,200,117,0.35)]"
+            >
+              REGISTER
+            </a>
+          )}
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="flex flex-col sm:flex-row items-center gap-4"
-        >
-          <button
-            onClick={handleDownloadGuidebook}
-            className="w-full sm:w-auto px-7 py-3 rounded-md border border-[#E6C875]/40 bg-black/60 backdrop-blur-md text-[#E6C875] font-mono text-xs uppercase tracking-widest hover:bg-[#E6C875] hover:text-black transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg"
+        {!isGeoepic && !isGtalk && (
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="flex flex-col sm:flex-row items-center gap-4"
           >
-            <Download className="w-4 h-4" /> GUIDEBOOK
-          </button>
+            {hasGuidebook && (
+              <button
+                onClick={handleDownloadGuidebook}
+                className="w-full sm:w-auto px-7 py-3 rounded-md border border-[#E6C875]/40 bg-black/60 backdrop-blur-md text-[#E6C875] font-mono text-xs uppercase tracking-widest hover:bg-[#E6C875] hover:text-black transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg"
+              >
+                <Download className="w-4 h-4" /> GUIDEBOOK
+              </button>
+            )}
 
-          <a
-            href={competition.registrationUrl}
-            className="w-full sm:w-auto px-7 py-3 rounded-md bg-[#E6C875] text-black font-mono text-xs uppercase tracking-widest font-semibold hover:bg-[#FFF5D6] transition-all flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(230,200,117,0.3)]"
-          >
-            REGISTER <ArrowUpRight className="w-4 h-4" />
-          </a>
-        </motion.div>
+            {hasRegistration && (
+              <a
+                href={competition.registrationUrl}
+                className="w-full sm:w-auto px-7 py-3 rounded-md bg-[#E6C875] text-black font-mono text-xs uppercase tracking-widest font-semibold hover:bg-[#FFF5D6] transition-all flex items-center justify-center gap-2 shadow-[0_0_30px_rgba(230,200,117,0.3)]"
+              >
+                REGISTER <ArrowUpRight className="w-4 h-4" />
+              </a>
+            )}
+          </motion.div>
+        )}
       </motion.div>
     </section>
   );

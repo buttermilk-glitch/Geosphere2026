@@ -10,6 +10,13 @@ interface CompetitionCtaSectionProps {
 }
 
 export function CompetitionCtaSection({ competition }: CompetitionCtaSectionProps) {
+  const isGeoepic = competition.id === "geoepic";
+  const isGtalk = competition.id === "gtalk";
+
+  if (isGeoepic) {
+    return null;
+  }
+
   return (
     <section className="relative z-30 w-full pt-24 pb-48 sm:pt-32 sm:pb-64 md:pt-40 md:pb-80 px-6 sm:px-12 bg-[#090604] text-[#FDFBF7] overflow-hidden">
       <motion.div
@@ -51,6 +58,7 @@ export function CompetitionCtaSection({ competition }: CompetitionCtaSectionProp
           className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto"
         >
           <a
+            id="gtalk-registration"
             href={competition.registrationUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -60,15 +68,17 @@ export function CompetitionCtaSection({ competition }: CompetitionCtaSectionProp
             <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </a>
 
-          <a
-            href={competition.guidebookUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-transparent border border-[#E6C875]/40 hover:border-[#E6C875] text-[#FFF5D6] hover:bg-[#E6C875]/10 font-mono text-xs uppercase tracking-widest font-medium transition-colors duration-300 flex items-center justify-center gap-2 group cursor-pointer"
-          >
-            <FileText className="w-4 h-4 text-[#E6C875]" />
-            <span>DOWNLOAD GUIDEBOOK</span>
-          </a>
+          {!isGtalk && (
+            <a
+              href={competition.guidebookUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full sm:w-auto px-8 py-4 rounded-xl bg-transparent border border-[#E6C875]/40 hover:border-[#E6C875] text-[#FFF5D6] hover:bg-[#E6C875]/10 font-mono text-xs uppercase tracking-widest font-medium transition-colors duration-300 flex items-center justify-center gap-2 group cursor-pointer"
+            >
+              <FileText className="w-4 h-4 text-[#E6C875]" />
+              <span>DOWNLOAD GUIDEBOOK</span>
+            </a>
+          )}
         </motion.div>
       </div>
     </section>

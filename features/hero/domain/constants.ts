@@ -37,7 +37,7 @@ export const SUB_COMPETITIONS = [
     name: "GCSC",
     fullName: "Geothermal Case Study Competition",
     logo: "/images/competition/icon-gcsc.png",
-    description: "A case-based subsurface geothermal exploration & resource evaluation competition simulating real industry workflows.",
+    description: "Kompetisi berbasis studi kasus yang berfokus pada eksplorasi bawah permukaan dan evaluasi sumber daya panas bumi.",
     href: "/competitions/gcsc",
   },
   {
@@ -45,7 +45,7 @@ export const SUB_COMPETITIONS = [
     name: "GEOEPIC",
     fullName: "Geophysical Essay & Innovation Competition",
     logo: "/images/competition/icon-geoepic.png",
-    description: "An essay and innovation contest addressing critical energy transition and earth science challenges.",
+    description: "Closing Event and Gala Dinner For Finalists of Geosphere 2026.",
     href: "/competitions/geoepic",
   },
   {
@@ -53,7 +53,7 @@ export const SUB_COMPETITIONS = [
     name: "GEOLEAGUE",
     fullName: "Geophysical Quiz & Smart Competition",
     logo: "/images/competition/icon-geoleague.png",
-    description: "A prestigious fast-paced quiz testing speed, accuracy, and deep analytical earth science comprehension.",
+    description: "Kompetisi individu tingkat nasional untuk siswa/i SMA/sederajat yang menguji pengetahuan dan analisis di bidang Kebumian, Fisika, dan Geofisika Dasar.",
     href: "/competitions/geoleague",
   },
   {
@@ -61,7 +61,7 @@ export const SUB_COMPETITIONS = [
     name: "GEOPAPER",
     fullName: "Scientific Paper & Presentation Contest",
     logo: "/images/competition/icon-geopaper.png",
-    description: "A scientific paper competition showcasing undergraduate research and geophysical exploration solutions.",
+    description: "Kompetisi karya tulis ilmiah dan poster tingkat nasional untuk mahasiswa S1/D4 dalam merumuskan inovasi keberlanjutan sektor energi dan migas.",
     href: "/competitions/geopaper",
   },
   {
@@ -69,7 +69,7 @@ export const SUB_COMPETITIONS = [
     name: "GTALK",
     fullName: "Geosphere Talk & National Seminar",
     logo: "/images/competition/icon-gtalk.png",
-    description: "An insightful national talkshow featuring prominent energy industry experts and geophysical academics.",
+    description: "Seminar nasional yang menghadirkan praktisi industri energi, akademisi, dan mahasiswa untuk membahas peran strategis geofisika.",
     href: "/competitions/gtalk",
   },
 ];

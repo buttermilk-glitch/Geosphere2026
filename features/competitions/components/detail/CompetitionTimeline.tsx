@@ -87,6 +87,7 @@ function TimelineItem({
 
 export function CompetitionTimeline({ competition }: CompetitionTimelineProps) {
   const statuses = calculateTimelineStatuses(competition.timeline);
+  const isGeoepic = competition.id === "geoepic";
 
   return (
     <section className="relative z-30 w-full pt-16 pb-28 md:pt-24 md:pb-36 px-6 sm:px-12 bg-[#090604] text-[#FDFBF7] overflow-hidden">
@@ -117,7 +118,7 @@ export function CompetitionTimeline({ competition }: CompetitionTimelineProps) {
             TIMELINE & MILESTONES
           </span>
           <h2 className="font-[family-name:var(--font-serif)] text-3xl sm:text-5xl text-[#FFF5D6] font-normal drop-shadow-[0_0_30px_rgba(230,200,117,0.2)]">
-            Schedule & Key Dates
+            {isGeoepic ? "Agenda" : "Schedule & Key Dates"}
           </h2>
         </div>
 

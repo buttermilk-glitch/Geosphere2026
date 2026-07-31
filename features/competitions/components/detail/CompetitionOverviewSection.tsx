@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useState } from "react";
 import { motion } from "motion/react";
 import Container from "@/components/container";
 import { TextHighlighter } from "@/components/ui/text-highlighter";
@@ -11,6 +12,39 @@ interface CompetitionOverviewSectionProps {
 }
 
 export function CompetitionOverviewSection({ competition }: CompetitionOverviewSectionProps) {
+  const isGtalk = competition.id === "gtalk";
+  const posterCards = competition.subThemes;
+  const packageOptions = [
+    {
+      title: "Free Access",
+      description: "Benefit yang Didapatkan :",
+      price: "FREE",
+      benefits: ["Update Knowledge", "Training Slides"],
+    },
+    {
+      title: "General Access",
+      description: "Benefit yang Didapatkan :",
+      price: "Rp 20.000",
+      benefits: ["Update Knowledge", "Training Slides", "E-Certificate"],
+    },
+    {
+      title: "Premium Access",
+      description: "Benefit yang Didapatkan :",
+      price: "Rp 40.000",
+      benefits: ["Update Knowledge", "Training Slides", "E-Certificate", "Hard Certificate (Hanya Untuk Offline)"],
+    },
+  ];
+
+  const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
+
+  const handleSelectPackage = (title: string) => {
+    setSelectedPackage(title);
+    const target = document.getElementById("gtalk-registration");
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
+
   return (
     <section
       id="overview"
@@ -75,7 +109,7 @@ export function CompetitionOverviewSection({ competition }: CompetitionOverviewS
           className="w-full"
         >
           <h2 className="font-[family-name:var(--font-serif)] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-[1.45] text-[#FDFBF7] tracking-wide">
-            {competition.description} {competition.subterraneanDescription} Driven by the grand national vision, teams are challenged to explore{" "}
+            {competition.description} {competition.subterraneanDescription} dengan tema{" "}
             <TextHighlighter
               triggerType="inView"
               highlightColor="rgba(230, 200, 117, 0.35)"
@@ -85,9 +119,91 @@ export function CompetitionOverviewSection({ competition }: CompetitionOverviewS
             >
               "{competition.themeHeadline}"
             </TextHighlighter>
-            {" "}to shape the future of sustainable energy exploration.
+            {" "}
           </h2>
         </motion.div>
+
+        {isGtalk && (
+          <div className="w-full pt-12 space-y-10">
+            <div className="grid gap-6 xl:grid-cols-2">
+              {posterCards.map((theme) => (
+                <div
+                  key={theme.title}
+                  className="overflow-hidden rounded-[2rem] border border-[#E6C875]/15 bg-[#0b0907]/90 p-6 shadow-[0_0_60px_rgba(0,0,0,0.3)] transition hover:-translate-y-1"
+                >
+                  <div className="flex h-full flex-col justify-between gap-6 min-h-[520px]">
+                    <div>
+                      <span className="text-xs uppercase tracking-[0.35em] text-[#E6C875]/60">
+                        {theme.title}
+                      </span>
+                      <h3 className="mt-4 text-2xl font-[family-name:var(--font-serif)] leading-tight text-[#FFF5D6]">
+                        {theme.title}
+                      </h3>
+                      <p className="mt-4 text-sm leading-7 text-[#FDFBF7]/75">
+                        {theme.desc}
+                      </p>
+                    </div>
+                    <div className="relative aspect-square w-full overflow-hidden rounded-[1.75rem] border border-dashed border-[#E6C875]/20 p-6">
+                      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#E6C875]/10 to-transparent" />
+                      <div className="relative z-10 flex h-full items-center justify-center">
+                        <span className="text-3xl sm:text-4xl font-[family-name:var(--font-serif)] uppercase tracking-[0.35em] text-[#E6C875] text-center leading-tight">
+                          To Be Announced<br />Poster
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="rounded-[2rem] border border-[#E6C875]/15 bg-[#0b0907]/95 p-8 shadow-[0_0_80px_rgba(0,0,0,0.2)]">
+              <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <span className="text-xs uppercase tracking-[0.35em] text-[#E6C875]/70">
+                    Package
+                  </span>
+                  <h3 className="mt-3 text-3xl font-[family-name:var(--font-serif)] text-[#FFF5D6]">
+                    Paket GTALK
+                  </h3>
+                </div>
+              </div>
+
+              <div className="mt-8 grid gap-4 md:grid-cols-3">
+                {packageOptions.map((pack) => (
+                  <div
+                    key={pack.title}
+                    onClick={() => handleSelectPackage(pack.title)}
+                    className={`rounded-[1.75rem] border bg-[#12100d]/90 p-6 transition-all duration-300 cursor-pointer ${
+                      selectedPackage === pack.title
+                        ? "border-[#FFF5D6] shadow-[0_0_40px_rgba(230,200,117,0.45)] scale-[1.01]"
+                        : "border-[#E6C875]/10 shadow-[0_0_30px_rgba(0,0,0,0.2)] hover:-translate-y-1"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between gap-4">
+                      <div className="inline-flex rounded-full bg-[#E6C875]/10 px-3 py-1 text-[11px] uppercase tracking-[0.35em] text-[#E6C875] font-semibold">
+                        {pack.title}
+                      </div>
+                      <div className="text-right text-base font-semibold text-[#FFF5D6] sm:text-lg">
+                        {pack.price}
+                      </div>
+                    </div>
+                    <p className="mt-4 text-sm leading-6 text-[#FDFBF7]/80">
+                      {pack.description}
+                    </p>
+                    <ul className="mt-6 space-y-3 text-sm text-[#FDFBF7]/70">
+                      {pack.benefits.map((benefit) => (
+                        <li key={benefit} className="flex items-start gap-3">
+                          <span className="mt-1 inline-flex h-2.5 w-2.5 rounded-full bg-[#E6C875]" />
+                          <span>{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
       </Container>
     </section>
   );
