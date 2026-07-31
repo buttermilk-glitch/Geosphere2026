@@ -102,7 +102,7 @@ export function HeroSection({ startAnimation = true }: { startAnimation?: boolea
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="absolute bottom-[14%] inset-x-0 h-[52.5vh] sm:bottom-[-5%] sm:h-full z-10 pointer-events-none transform-gpu"
         >
-          <Image src={isMobile ? "/images/parthenon-ruins-mobile.png" : "/images/parthenon.webp"} alt="Parthenon Temple" fill priority className={`object-cover w-full h-full ${isMobile ? "object-[50%_center]" : "object-center"}`} />
+          <Image src={isMobile ? "/images/parthenon-mobile.webp" : "/images/parthenon.webp"} alt="Parthenon Temple" fill priority className={`object-cover w-full h-full ${isMobile ? "object-[50%_center]" : "object-center"}`} />
           <div className="absolute inset-0 sm:hidden bg-gradient-to-b from-transparent via-black/10 to-black/70 pointer-events-none" />
         </motion.div>
 

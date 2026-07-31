@@ -195,7 +195,7 @@ export function SplashScreen({ onComplete }: { onComplete?: () => void }) {
             className="flex flex-col max-w-4xl px-6 w-full"
           >
             <blockquote className="font-serif text-lg sm:text-2xl md:text-3xl text-white/90 leading-relaxed font-normal tracking-wide text-left">
-              “ Semua cabang ilmu bumi harus saling melengkapi untuk menyingkap rahasia planet kita. ”
+              “ All earth sciences must contribute evidence toward unveiling the state of our planet ”
             </blockquote>
             <div className="w-full flex flex-col items-end mt-4">
               <cite className="font-sans text-xs sm:text-sm text-[#E6C875] tracking-[0.15em] uppercase not-italic font-medium">
