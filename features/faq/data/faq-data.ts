@@ -41,7 +41,7 @@ export const FAQ_DATA: FaqItem[] = [
 
 export const CONTACT_PERSONS: ContactPerson[] = [
   {
-    name: "Faiuzan",
+    name: "Fauzan",
     role: "",
     contact: "+62 852-1606-0002",
     whatsappUrl: "https://wa.me/6285216060002",

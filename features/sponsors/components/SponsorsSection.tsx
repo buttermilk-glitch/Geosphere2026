@@ -80,7 +80,9 @@ export function SponsorsSection({ sponsors = SPONSORS_DATA }: SponsorsSectionPro
             </div>
 
             <a
-              href="mailto:sponsorship@geosphere-its.com"
+              href="/docs/SPONSOR-compressed.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="relative z-10 mt-2 inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[#E6C875]/40 text-[#E6C875] text-sm font-mono uppercase tracking-[0.15em] hover:bg-[#E6C875] hover:text-black transition-all duration-300"
             >
               Become a Sponsor
