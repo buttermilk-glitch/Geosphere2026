@@ -48,7 +48,7 @@ export const COMPETITIONS_DATA: Competition[] = [
       "Teams consist of maximum 3 members (1 Team Leader + 2 Members) from the same institution.",
       "Top 6 finalist teams must present onsite at ITS Surabaya in formal attire."
     ],
-    guidebookUrl: "/docs/guidebook-GCSC.pdf",
+    guidebookUrl: "/docs/GCSC.pdf",
     registrationUrl: "https://its.id/m/REGISTRATIONGCSC2026"
   },
   {
