@@ -163,7 +163,7 @@ export function NavigationMenu({ startAnimation = true }: { startAnimation?: boo
                   <span className="text-[#FDFBF7]/60 uppercase tracking-widest">
                     Institut Teknologi Sepuluh Nopember
                   </span>
-                  <span>Fakultas Teknik Sipil, Lingkungan & Kebumian</span>
+                  <span>Fakultas Teknik Sipil, Perencanaan & Kebumian</span>
                   <span className="text-[#FDFBF7]/25">{CAMPUS_ADDRESS}</span>
                 </div>
                 <div className="flex flex-col gap-1">
