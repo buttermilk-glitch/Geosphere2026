@@ -11,7 +11,7 @@ export const COMPETITIONS_DATA: Competition[] = [
     description:
       "Kompetisi berbasis studi kasus yang berfokus pada eksplorasi bawah permukaan dan evaluasi sumber daya panas bumi",
     tag: "Case Study",
-    prizePool: "IDR 7.000.000",
+    prizePool: "IDR 6.500.000",
     badgeText: "Flagship",
     bgImage: "/images/card-bg-gcsc.png",
     logo: "/images/competition/icon-gcsc.png",
