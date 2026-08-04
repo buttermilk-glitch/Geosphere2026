@@ -108,7 +108,7 @@ export function CompetitionOverviewSection({ competition }: CompetitionOverviewS
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           className="w-full"
         >
-          <h2 className="font-[family-name:var(--font-serif)] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-[1.45] text-[#FDFBF7] tracking-wide">
+          <h2 className="font-[family-name:var(--font-serif)] text-lg sm:text-xl md:text-2xl lg:text-3xl font-normal leading-[1.45] text-[#FDFBF7] tracking-wide">
             {competition.description} {competition.subterraneanDescription} dengan tema{" "}
             <TextHighlighter
               triggerType="inView"

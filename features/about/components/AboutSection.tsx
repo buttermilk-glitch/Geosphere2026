@@ -64,7 +64,7 @@ export function AboutSection() {
 
         <MagicText
           text="GEOSPHERE ITS 2026 is the annual event organized by the ITS Geophysical Engineering student association. This national platform brings together visionary students and researchers under the theme “Shaping Pathways for a Sustainable Energy Transition and Resilient Future”."
-          className="font-[family-name:var(--font-serif)] text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal leading-relaxed text-[#FDFBF7] tracking-wide"
+          className="font-[family-name:var(--font-serif)] text-lg sm:text-xl md:text-2xl lg:text-3xl font-normal leading-relaxed text-[#FDFBF7] tracking-wide"
         />
       </Container>
     </section>
