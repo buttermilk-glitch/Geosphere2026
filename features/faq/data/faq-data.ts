@@ -4,39 +4,34 @@ export const FAQ_DATA: FaqItem[] = [
   {
     id: "eligibility",
     category: "general",
-    question: "Who is eligible to participate in GEOSPHERE ITS 2026?",
-    answer: "GEOSPHERE ITS 2026 is open to active high school students, undergraduate university students, and diploma students from recognized national and international educational institutions. Specific eligibility requirements vary per sub-competition domain.",
+    question: "apakah perserta yang sudah mendaftar pada salah satu lomba GEOSPHERE ITS 2026 boleh mengikuti lomba lainnya yang di selenggarakan oleh GEOSPHERE 2026?",
+    answer: "Peserta hanya di perbolehkan mengikuti satu lomba saja, tidak bisa mengikuti dua lomba sekaligus.",
   },
   {
     id: "team-composition",
     category: "registration",
-    question: "Can team members come from different majors or institutions?",
-    answer: "Team members must belong to the same institution for most sub-competitions. However, interdisciplinary team members across different faculties within the same university are highly encouraged.",
+    question: "apakah anggota tim bisa berasal dari jurusan atau institusi yang berbeda?",
+    answer: "Anggota tim harus berasal dari institusi yang sama untuk sebagian besar sub-competitions. Namun, anggota tim yang memiliki keahlian lintas disiplin dari fakultas yang berbeda dalam satu universitas sangatlah dianjurkan.",
   },
   {
     id: "sub-competitions",
     category: "competition",
-    question: "What sub-competitions are hosted under GEOSPHERE ITS 2026?",
-    answer: "There are 5 official sub-competitions: IPPC (International Paper Competition), GPC (Geophysics Photography), SGC (Smart Geophysics Competition), GCSC (Geophysical Case Study), and LKTIN (Lomba Karya Tulis Ilmiah Nasional).",
+    question: "Sub-Kompetisi apa saja yang ada di GEOSPHERE ITS 2026?",
+    answer: "Terdapat 3 sub-kompetisi, yaitu Geothermal Case Study Competition (GCSC), Geolague, dan Geopaper. Selain itu, terdapat event seminar yang dapat diikuti (GTALK)",
   },
   {
     id: "guidebook-download",
     category: "general",
-    question: "Where can we access the official guidebook and paper templates?",
-    answer: "The official event guidebook and sub-competition templates can be downloaded directly from the official Geosphere ITS portal or obtained through our official contact committee.",
+    question: "Dimana kita bisa mengakses guidebook resmi dan template karya?",
+    answer: "Guidebook acara resmi dan template sub-kompetisi dapat diunduh langsung dari portal resmi Geosphere ITS 2026.",
   },
   {
     id: "submission-format",
     category: "submission",
-    question: "What is the format for preliminary paper submissions?",
-    answer: "All paper and abstract submissions must adhere strictly to the IEEE/GEOSPHERE paper formatting guidelines in PDF format. Detailed page limits and reference styles are outlined in the Guidebook.",
+    question: "Apakah kita bisa mengganti anggota tim setelah pendaftaran?",
+    answer: "Tidak, anggota tim tidak diperbolehkan untuk mengganti anggota nya setelah melakukan pendaftaran, sebaiknya pergantian anggota dilakukan sebelum pendaftaran.",
   },
-  {
-    id: "final-presentation",
-    category: "competition",
-    question: "Will the final stage be held online or offline at ITS Campus?",
-    answer: "The preliminary evaluation stage is conducted online. Finalists selected for the presentation round will be invited for on-site presentations and awarding night at Institut Teknologi Sepuluh Nopember, Surabaya.",
-  },
+
 ];
 
 export const CONTACT_PERSONS: ContactPerson[] = [
