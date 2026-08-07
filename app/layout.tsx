@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Marcellus } from "next/font/google";
 import localFont from "next/font/local";
 import { SmoothScrollProvider } from "@/components/providers/smooth-scroll";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -103,8 +104,9 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${marcellus.variable} ${glimmerOfLight.variable} h-full antialiased dark`}
     >
-      <body className="min-h-full flex flex-col bg-[#2C1E18] text-[#FDFBF7] font-sans selection:bg-[#D4AF37] selection:text-[#2C1E18]">
-        <SmoothScrollProvider>{children}</SmoothScrollProvider>
+      <body>
+        {children}
+        <Analytics />
       </body>
     </html>
   );
